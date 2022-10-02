@@ -1,14 +1,57 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class ChessOnCommand {
-    public static void main (String []args ){
+    public static void main (String []args ) throws InterruptedException{
+
+        //control variables
+        int menuState = 0;
+
+        //the board represented with a two dimensional string array
+        String chessboard[][];
+
+        Scanner input = new Scanner(System.in);
 
         ClearConsole();
         TitlePrint();
 
-    }
+
+        System.out.println("1. Play\n");
+        System.out.println("2. Help\n");
+        System.out.println("3. Exit\n");
+        
+        while(menuState == 0){
+
+            switch(intInput()) { 
+                case 1: 
+                    ClearConsole();
+                    break; 
+                case 2: 
+                    ClearConsole();
+                    //slap the rules in here
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("\n Enter to continue");
+                    break; 
+                case 3: 
+                    ClearConsole();
+                    System.out.println( "Goodbye world");
+                    Thread.sleep(5000);
+                    System.exit(0);
+                    break; 
     
-//The functions lie after this line
+            }
+        }
+        
+        input.close();
+    }//end of main
+    
+//here be functions
     
     public static void ClearConsole() {
 
@@ -36,6 +79,45 @@ public class ChessOnCommand {
         System.out.println("\\  \\___ (  <_> )|  Y Y  \\|  Y Y  \\ / __ \\_|   |  \\/ /_/ | ");
         System.out.println(" \\___  > \\____/ |__|_|  /|__|_|  /(____  /|___|  /\\____ | ");
         System.out.println("     \\/               \\/       \\/      \\/      \\/      \\/ ");
+    }    
+
+    static int intInput(){
+        //Takes input and checks if integer
+        //if not informs user and tries again
+        Scanner input = new Scanner(System.in);
+        int tempControl = 0;
+        Integer processedInput = 0;
+        
+
+        while(tempControl == 0){
+
+            System.out.print(":");
+
+            if(input.hasNextLine()){
+
+                String rawInput = input.nextLine();
+
+                try {
+
+                    processedInput = Integer.parseInt(rawInput);
+                    tempControl = 1;
+
+                } catch (NumberFormatException e) {
+
+                    System.out.println("Input must be an integer");
+
+                }
+
+            } else {
+
+                tempControl = 1;
+
+            }
+        }
+
+        input.close();
+        return processedInput;
+
     }
 
-}//End of program
+}//end of program
