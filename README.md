@@ -1,5 +1,5 @@
 # Chess-on-command
-Chess on the windows command line, for a school project. Yes the name is a pun, no I will neither apologise nor change it.
+Chess on the windows command line, initially for a school project.
 
 As the name implies the goal of this project is to get chess running on the windows command line, cmd.exe
 There are some more advanced features planned, a chess engine to play against or possibly
